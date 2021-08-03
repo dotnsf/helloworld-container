@@ -4,13 +4,14 @@ var express = require( 'express' ),
     app = express();
 
 app.get( '/', function( req, res ){
-  console.log( 'GET /' );
+  console.log( '** GET / **' );
   res.contentType( 'text/plain; charset=utf-8' );
-  console.log( 'HelloWorld! (' + ( new Date() ).toISOString() + ')' );
-  res.write( 'HelloWorld!' );
+  text = 'HelloWorld! (' + ( new Date() ).toISOString() + ')';
+  console.log( text );
+  res.write( text );
   res.end();
 });
 
 var port = process.env.PORT || 8080;
 app.listen( port );
-console.log( "server starting on " + port + " ..." );
+console.log( "server starting on " + port + "(" + ( new Date() ).toISOString() + ")" );
